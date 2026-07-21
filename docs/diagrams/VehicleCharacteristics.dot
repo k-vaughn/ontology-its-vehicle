@@ -1,0 +1,30 @@
+// Diagram for VehicleCharacteristics
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		RegulationThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">RegulationThing</TD></TR></TABLE>> URL="../RegulationThing" margin=0]
+	}
+	VehicleCharacteristics [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">VehicleCharacteristics</TD></TR></TABLE>> URL="../VehicleCharacteristics" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		cdm1_Length [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Length</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Length" margin=0]
+		cdm1_Mass [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Mass</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Mass" margin=0]
+	}
+	VehicleCharacteristics -> RegulationThing [arrowhead=onormal style=solid]
+	VehicleCharacteristics -> Invis [style=invis]
+	Invis -> cdm1_Length [style=invis]
+	cdm1_Length -> cdm1_Mass [style=invis]
+	cdm1_Mass [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Mass</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Mass" margin=0]
+	VehicleCharacteristics -> cdm1_Mass [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasGrossMass</TD></TR></TABLE>> arrowhead=normal style=solid]
+	cdm1_Length [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">cdm1:Length</TD></TR></TABLE>> URL="https://w3id.org/citydata/part1/v1/Length" margin=0]
+	VehicleCharacteristics -> cdm1_Length [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasHeight</TD></TR></TABLE>> arrowhead=normal style=solid]
+	VehicleCharacteristics -> cdm1_Mass [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasKerbMass</TD></TR></TABLE>> arrowhead=normal style=solid]
+	VehicleCharacteristics -> cdm1_Mass [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasMaximumAllowedMass</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

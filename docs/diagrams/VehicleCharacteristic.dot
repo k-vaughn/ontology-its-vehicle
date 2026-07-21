@@ -1,0 +1,38 @@
+// Diagram for VehicleCharacteristic
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+	}
+	VehicleCharacteristic [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">VehicleCharacteristic</TD></TR><TR><TD ALIGN="LEFT">ofVehicleType</TD></TR><TR><TD ALIGN="LEFT">yearOfFirstRegistration : xsd:gYear [0..1]</TD></TR></TABLE>> URL="../VehicleCharacteristic" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		FuelTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FuelTypeCode</TD></TR></TABLE>> URL="../FuelTypeCode" margin=0]
+		GoodsTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">GoodsTypeCode</TD></TR></TABLE>> URL="../GoodsTypeCode" margin=0]
+		LoadTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">LoadTypeCode</TD></TR></TABLE>> URL="../LoadTypeCode" margin=0]
+		VehicleEquipmentCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">VehicleEquipmentCode</TD></TR></TABLE>> URL="../VehicleEquipmentCode" margin=0]
+		VehicleUsageCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">VehicleUsageCode</TD></TR></TABLE>> URL="../VehicleUsageCode" margin=0]
+	}
+	VehicleCharacteristic -> Invis [style=invis]
+	Invis -> FuelTypeCode [style=invis]
+	FuelTypeCode -> GoodsTypeCode [style=invis]
+	GoodsTypeCode -> LoadTypeCode [style=invis]
+	LoadTypeCode -> VehicleEquipmentCode [style=invis]
+	VehicleEquipmentCode -> VehicleUsageCode [style=invis]
+	FuelTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FuelTypeCode</TD></TR></TABLE>> URL="../FuelTypeCode" margin=0]
+	VehicleCharacteristic -> FuelTypeCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasFuelType</TD></TR></TABLE>> arrowhead=normal style=solid]
+	GoodsTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">GoodsTypeCode</TD></TR></TABLE>> URL="../GoodsTypeCode" margin=0]
+	VehicleCharacteristic -> GoodsTypeCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasGoodsType</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	LoadTypeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">LoadTypeCode</TD></TR></TABLE>> URL="../LoadTypeCode" margin=0]
+	VehicleCharacteristic -> LoadTypeCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasLoadType</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	VehicleEquipmentCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">VehicleEquipmentCode</TD></TR></TABLE>> URL="../VehicleEquipmentCode" margin=0]
+	VehicleCharacteristic -> VehicleEquipmentCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasVehicleEquipment</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	VehicleUsageCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">VehicleUsageCode</TD></TR></TABLE>> URL="../VehicleUsageCode" margin=0]
+	VehicleCharacteristic -> VehicleUsageCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasVehicleUsage</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+}

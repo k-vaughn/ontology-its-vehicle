@@ -1,0 +1,25 @@
+id,qname,heading,text,type,diagram,website,updated
+,GoodsTypeCode,GoodsTypeCode,A code that indicates the type of goods (especially hazardous goods) that is carried by a vehicle.,Class,https://w3id.org/itsdata/vehicle/v1/diagrams/GoodsTypeCode.dot.svg,https://w3id.org/itsdata/vehicle/v1/GoodsTypeCode,2026-07-21T14:35:16.772712
+,EmissionLevelCode,EmissionLevelCode,A code that indicates the emission level of a vehicle.,Class,https://w3id.org/itsdata/vehicle/v1/diagrams/EmissionLevelCode.dot.svg,https://w3id.org/itsdata/vehicle/v1/EmissionLevelCode,2026-07-21T14:35:16.772712
+,VehicleTypeCode,VehicleTypeCode,A code that indicates the type of vehicle.,Class,https://w3id.org/itsdata/vehicle/v1/diagrams/VehicleTypeCode.dot.svg,https://w3id.org/itsdata/vehicle/v1/VehicleTypeCode,2026-07-21T14:35:16.772712
+,LoadTypeCode,LoadTypeCode,A code that indicates categories of load types that can affect the applicability of a regulation.,Class,https://w3id.org/itsdata/vehicle/v1/diagrams/LoadTypeCode.dot.svg,https://w3id.org/itsdata/vehicle/v1/LoadTypeCode,2026-07-21T14:35:16.772712
+,VehicleEquipmentCode,VehicleEquipmentCode,A code that indicates the type of equipment that is carried by a vehicle.,Class,https://w3id.org/itsdata/vehicle/v1/diagrams/VehicleEquipmentCode.dot.svg,https://w3id.org/itsdata/vehicle/v1/VehicleEquipmentCode,2026-07-21T14:35:16.772712
+,FuelTypeCode,FuelTypeCode,A code that indicates the type of fuel that is used by a vehicle.,Class,https://w3id.org/itsdata/vehicle/v1/diagrams/FuelTypeCode.dot.svg,https://w3id.org/itsdata/vehicle/v1/FuelTypeCode,2026-07-21T14:35:16.772712
+,VehicleCharacteristic,VehicleCharacteristic,,Class,https://w3id.org/itsdata/vehicle/v1/diagrams/VehicleCharacteristic.dot.svg,https://w3id.org/itsdata/vehicle/v1/VehicleCharacteristic,2026-07-21T14:35:16.772712
+,VehicleUsageCode,VehicleUsageCode,A code that indicates the usage of a vehicle.,Class,https://w3id.org/itsdata/vehicle/v1/diagrams/VehicleUsageCode.dot.svg,https://w3id.org/itsdata/vehicle/v1/VehicleUsageCode,2026-07-21T14:35:16.772712
+,VehicleCharacteristics,VehicleCharacteristics,Characteristics of a vehicle.,Class,https://w3id.org/itsdata/vehicle/v1/diagrams/VehicleCharacteristics.dot.svg,https://w3id.org/itsdata/vehicle/v1/VehicleCharacteristics,2026-07-21T14:35:16.772712
+,hasFuelType,hasFuelType,Indicates the type of fuel that is used by the vehicle.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasFuelType,2026-07-21T14:35:16.772712
+,hasGoodsType,hasGoodsType,Indicates the type of goods (especially hazardous goods) being carried by the vehicle.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasGoodsType,2026-07-21T14:35:16.772712
+,hasGrossMass,hasGrossMass,Current mass of the vehicle including passengers and cargo.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasGrossMass,2026-07-21T14:35:16.772712
+,hasHeaviestAxleMass,hasHeaviestAxleMass,Mass of the heaviest axle of the vehicle.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasHeaviestAxleMass,2026-07-21T14:35:16.772712
+,hasHeight,hasHeight,Height of the vehicle.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasHeight,2026-07-21T14:35:16.772712
+,hasKerbMass,hasKerbMass,Mass of the vehicle ready to drive without passengers or cargo.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasKerbMass,2026-07-21T14:35:16.772712
+,hasLength,hasLength,"Length of the vehicle, including the length of any trailers, couplings, embedded features etc..",ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasLength,2026-07-21T14:35:16.772712
+,hasLoadType,hasLoadType,Indicates any loading anomalies associated with the vehicle.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasLoadType,2026-07-21T14:35:16.772712
+,hasMaximumAllowedMass,hasMaximumAllowedMass,Maximum mass of the vehicle including passengers and cargo.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasMaximumAllowedMass,2026-07-21T14:35:16.772712
+,hasNumberOfAxles,hasNumberOfAxles,Number of axles of the vehicle.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasNumberOfAxles,2026-07-21T14:35:16.772712
+,hasVehicleEquipment,hasVehicleEquipment,Indicates the equipment that is carried by the vehicle.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasVehicleEquipment,2026-07-21T14:35:16.772712
+,hasVehicleUsage,hasVehicleUsage,Indicates the usage of the vehicle.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasVehicleUsage,2026-07-21T14:35:16.772712
+,hasVehicleType,hasVehicleType,Indicates the type of the vehicle.,ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasVehicleType,2026-07-21T14:35:16.772712
+,hasWidth,hasWidth,"Width of the vehicle, including any features embedded or fixed on it, in metres.",ObjectProperty,,https://w3id.org/itsdata/vehicle/v1/hasWidth,2026-07-21T14:35:16.772712
+,yearOfFirstRegistration,yearOfFirstRegistration,Indicates the year of the first registration of the vehicle.,DatatypeProperty,,https://w3id.org/itsdata/vehicle/v1/yearOfFirstRegistration,2026-07-21T14:35:16.772712
