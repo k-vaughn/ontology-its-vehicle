@@ -1,0 +1,220 @@
+@prefix : <https://w3id.org/itsdata/vehicle/v1/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cdm1: <https://w3id.org/citydata/part1/v1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/v1/> .
+@prefix its-core: <https://w3id.org/itsdata/core/v1/> .
+
+:VehicleCharacteristicsPattern
+    rdf:type                      owl:Ontology ;
+    dcterms:creator               "Kenneth Vaughn" ;
+    dcterms:license               <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified              "2026-07-14T22:02:06Z"^^xsd:dateTime ;
+    dcterms:title                 "Vehicle Characteristics Pattern"@en ;
+    its-core:draft                true ;
+    owl:imports                   cdm1: ;
+    owl:imports                   its-core: ;
+    skos:definition               "This ontology defines patterns for vehicle characteristics."@en .
+
+# ================================================
+#                 Code classes
+# ================================================
+
+:EmissionLevelCode
+    rdf:type        owl:Class ;
+    rdfs:subClassOf its-core:Code ;
+    skos:definition "A code that indicates the emission level of a vehicle."@en ;
+    skos:example "Euro 1, Euro 2, freeOfEmissions, LEV, ULEV etc."@en ;
+    rdfs:seeAlso "DATEX-II EmissionClassificationEuroEnum, DATEX-II LowEmissionLevelEnum" .
+
+:FuelTypeCode
+    rdf:type        owl:Class ;
+    rdfs:subClassOf its-core:Code ;
+    skos:definition "A code that indicates the type of fuel that is used by a vehicle."@en ;
+    skos:example "gasoline, diesel, electric, etc."@en ;
+    rdfs:seeAlso "DATEX-II FuelTypeEnum" .
+
+:GoodsTypeCode
+    rdf:type        owl:Class ;
+    rdfs:subClassOf its-core:Code ;
+    skos:definition "A code that indicates the type of goods (especially hazardous goods) that is carried by a vehicle."@en ;
+    skos:example "corrosive goods, explosive goods, radioactive goods, livestock, etc."@en ;
+    rdfs:seeAlso "DATEX-II LoadTypeEnum" ;
+    skos:editorialNote "DATEX-II LoadTypeEnum was split between goods type and load type (e.g. wide load)."@en .
+
+:LoadTypeCode
+    rdf:type        owl:Class ;
+    rdfs:subClassOf :ConditionCode ;
+    skos:definition "A code that indicates categories of load types that can affect the applicability of a regulation."@en ;
+    skos:example "normal, wide load, over-height load, etc."@en ;
+    rdfs:seeAlso "DATEX-II LoadTypeEnum" ;
+    skos:editorialNote "DATEX-II LoadTypeEnum was split between goods type and load type (e.g. wide load)."@en .
+
+:VehicleEquipmentCode
+    rdf:type        owl:Class ;
+    rdfs:subClassOf its-core:Code ;
+    skos:definition "A code that indicates the type of equipment that is carried by a vehicle."@en ;
+    skos:example "trailer attached, snow tyres, snow chains on-board, snow chains in use, snow chains not in use, etc."@en ;
+    rdfs:seeAlso "DATEX-II VehicleEquipmentEnum" .
+
+:VehicleUsageCode
+    rdf:type        owl:Class ;
+    rdfs:subClassOf its-core:Code ;
+    skos:definition "A code that indicates the usage of a vehicle."@en ;
+    skos:example "agricultural, car sharing, commercial, military, etc."@en ;
+    rdfs:seeAlso "DATEX-II VehicleUsageEnum" .
+
+:VehicleTypeCode
+    rdf:type        owl:Class ;
+    rdfs:subClassOf its-core:Code ;
+    skos:definition "A code that indicates the type of vehicle."@en ;
+    skos:example "car, bus, articulatedBus, heavyGoodsVehicle, moped, etc."@en ;
+    rdfs:seeAlso "DATEX-II VehicleTypeEnum" .
+
+# ================================================
+#         VehicleCharacteristic Classes
+# ================================================
+
+:VehicleCharacteristics
+    rdf:type        owl:Class ;
+    rdfs:subClassOf :RegulationThing ;
+    rdfs:subClassOf [
+        rdf:type                    owl:Restriction ;
+        owl:onProperty              :hasGrossMass ;
+        owl:onClass                 cdm1:Mass ;
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                    owl:Restriction ;
+        owl:onProperty              :hasHeight ;
+        owl:onClass                 cdm1:Length ;
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                    owl:Restriction ;
+        owl:onProperty              :hasKerbMass ;
+        owl:onClass                 cdm1:Mass ;
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                    owl:Restriction ;
+        owl:onProperty              :hasGrossMass ;
+        owl:onClass                 cdm1:Mass ;
+    ] ;
+    rdfs:subClassOf [
+        rdf:type                    owl:Restriction ;
+        owl:onProperty              :hasMaximumAllowedMass ;
+        owl:onClass                 cdm1:Mass ;
+    ] ;
+    skos:definition "Characteristics of a vehicle."@en ;
+    skos:editorialNote "Some items are plural and some are not; it is not entirely clear why the multiplicity is shown as is."@en ;
+    rdfs:seeAlso "DATEX-II VehicleCharacteristics" .
+
+# ================================================
+#                 Object properties
+# ================================================
+
+:hasFuelType
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      :FuelTypeCode ;
+    skos:definition "Indicates the type of fuel that is used by the vehicle."@en .
+
+:hasGoodsType
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      :GoodsTypeCode ;
+    skos:definition "Indicates the type of goods (especially hazardous goods) being carried by the vehicle."@en .
+
+:hasGrossMass
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      cdm1:Mass ;
+    skos:definition "Current mass of the vehicle including passengers and cargo."@en ;
+    skos:editorialNote "Equivalent to the DATEX-II GrossWeightCharacteristics.grossVehicleWeight when WeightTypeEnum is actual."@en .
+
+:hasHeaviestAxleMass
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      cdm1:Mass ;
+    skos:definition "Mass of the heaviest axle of the vehicle."@en ;
+    rdfs:seeAlso "DATEX-II HeaviestAxleWeightCharacteristic.heaviestAxleWeight" .
+
+:hasHeight
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      cdm1:Length ;
+    skos:definition "Height of the vehicle."@en ;
+    rdfs:seeAlso "DATEX-II HeightCharacteristic.vehicleHeight" .
+
+:hasKerbMass
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      cdm1:Mass ;
+    skos:definition "Mass of the vehicle ready to drive without passengers or cargo."@en .
+
+:hasLength
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      cdm1:Length ;
+    skos:definition "Length of the vehicle, including the length of any trailers, couplings, embedded features etc.."@en ;
+    rdfs:seeAlso "DATEX-II LengthCharacteristic.vehicleLength" .
+
+:hasLoadType
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      :LoadTypeCode ;
+    skos:definition "Indicates any loading anomalies associated with the vehicle."@en .
+
+:hasMaximumAllowedMass
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      cdm1:Mass ;
+    skos:definition "Maximum mass of the vehicle including passengers and cargo."@en ;
+    skos:editorialNote "Equivalent to the DATEX-II GrossWeightCharacteristics.grossVehicleWeight when WeightTypeEnum is maximumPermitted."@en .
+
+:hasNumberOfAxles
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      xsd:nonNegativeInteger ;
+    skos:definition "Number of axles of the vehicle."@en ;
+    rdfs:seeAlso "DATEX-II NumberOfAxlesCharacteristic.numberOfAxles" .
+
+:hasVehicleEquipment
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      :VehicleEquipmentCode ;
+    skos:definition "Indicates the equipment that is carried by the vehicle."@en .
+
+:hasVehicleUsage
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      :VehicleUsageCode ;
+    skos:definition "Indicates the usage of the vehicle."@en .
+
+:hasVehicleType
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      :VehicleTypeCode ;
+    skos:definition "Indicates the type of the vehicle."@en .
+
+:hasWidth
+    rdf:type        owl:ObjectProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      cdm1:Length ;
+    skos:definition "Width of the vehicle, including any features embedded or fixed on it, in metres."@en ;
+    rdfs:seeAlso "DATEX-II WidthCharacteristic.vehicleWidth" .
+
+# ================================================
+#                 Datatype properties
+# ================================================
+
+:yearOfFirstRegistration
+    rdf:type        owl:DatatypeProperty ;
+    rdfs:domain     :VehicleCharacteristic ;
+    rdfs:range      xsd:gYear ;
+    skos:definition "Indicates the year of the first registration of the vehicle."@en ;
+    rdfs:seeAlso "DATEX-II VehicleCharacteristics.yearOfFirstRegistration" .

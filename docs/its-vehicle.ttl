@@ -1,0 +1,23 @@
+@prefix : <https://w3id.org/itsdata/vehicle/v1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix its-core: <https://w3id.org/itsdata/core/v1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+:ITSVehicle
+    rdf:type                      owl:Ontology ;
+    dcterms:creator               "Kenneth Vaughn"@en ;
+    dcterms:license               <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified              "2026-07-14T22:02:06Z"^^xsd:dateTime ;
+    dcterms:title                 "ITS Ontology - Vehicle Topic Area"@en ;
+    its-core:draft                true ;
+    owl:imports                   :Core ;
+    owl:imports                   :VehicleCharacteristicsPattern ;
+    owl:versionIRI                <https://w3id.org/itsdata/regulation/v1/ITSRegulation/r0.0-alpha.1> ;
+    owl:versionInfo               "0.0.0-alpha.1" ;
+    skos:definition               "This ontology imports the Vehicle topic area modules."@en ;
+    vann:preferredNamespacePrefix "its-vehicle" ;
+    vann:preferredNamespaceUri    "https://w3id.org/itsdata/vehicle/v1/" .

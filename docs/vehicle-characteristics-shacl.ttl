@@ -1,0 +1,54 @@
+BASE <https://w3id.org/itsdata/vehicle/v1/>
+PREFIX : <https://w3id.org/itsdata/vehicle/v1/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cdm1: <https://w3id.org/citydata/part1/v1/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX cdm2: <https://w3id.org/citydata/part2/v1/>
+PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
+PREFIX its-time: <https://w3id.org/itsdata/time/v1/>
+PREFIX its-location: <https://w3id.org/itsdata/location/v1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+:VehicleCharacteristicsSHACL a owl:Ontology ;
+    dcterms:title "SHACL constraints for the Vehicle Characteristics pattern"@en ;
+    skos:definition "Validation shapes for vehicle characteristics concepts."@en ;
+    owl:imports :VehicleCharacteristicsPattern .
+
+:VehicleCharacteristicShape a sh:NodeShape ;
+    sh:targetClass :VehicleCharacteristic ;
+    sh:property [
+        sh:path :hasFuelType ;
+        sh:class :FuelTypeCode ;
+    ] ;
+    sh:property [
+        sh:path :hasGoodsType ;
+        sh:node its-core:MaxOneShape ;
+        sh:class :GoodsTypeCode ;
+    ] ;
+    sh:property [
+        sh:path :hasLoadType ;
+        sh:node its-core:MaxOneShape ;
+        sh:class :LoadTypeCode ;
+    ] ;
+    sh:property [
+        sh:path :hasVehicleEquipment ;
+        sh:node its-core:MaxOneShape ;
+        sh:class :VehicleEquipmentCode ;
+    ] ;
+    sh:property [
+        sh:path :ofVehicleType ;
+        sh:class :VehicleTypeCode ;
+    ] ;
+    sh:property [
+        sh:path :hasVehicleUsage ;
+        sh:node its-core:MaxOneShape ;
+        sh:class :VehicleUsageCode ;
+    ] ;
+    sh:property [
+        sh:path :yearOfFirstRegistration ;
+        sh:node its-core:MaxOneShape ;
+        sh:datatype xsd:gYear ;
+    ] .
